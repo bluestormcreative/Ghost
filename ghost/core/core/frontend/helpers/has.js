@@ -1,6 +1,7 @@
 // # Has Helper
 // Usage: `{{#has tag="video, music"}}`, `{{#has author="sam, pat"}}`
 //        `{{#has author="count:1"}}`, `{{#has tag="count:>1"}}`
+//        `{{#has tag="includes:music"}}`
 //
 // Checks if a post has a particular property
 
@@ -33,6 +34,15 @@ function handleCount(ctxAttr, data) {
     return false;
 }
 
+function handleTagIncludes(tagAttr, tags) {
+    if (!tags) {
+        return false;
+    }
+    const text = tagAttr.replace("includes:", "");
+    const matches = tags.filter((tag) => tag.name.includes(text));
+    return matches.length !== 0;
+}
+
 function evaluateTagList(expr, tags) {
     return expr.split(',').map(function (v) {
         return v.trim();
@@ -54,6 +64,11 @@ function handleTag(data, attrs) {
     if (attrs.tag.match(/count:/)) {
         return handleCount(attrs.tag, data.tags);
     }
+
+    if (attrs.tag.match(/includes:/)) {
+        return handleTagIncludes(attrs.tag, data.tags);
+    }
+
 
     return evaluateTagList(attrs.tag, _.map(data.tags, 'name')) || false;
 }
