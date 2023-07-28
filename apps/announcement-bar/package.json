@@ -37,28 +37,28 @@
   },
   "eslintConfig": {
     "env": {
-        "browser": true,
-        "jest": true
-      },
-      "parserOptions": {
-        "sourceType": "module",
-        "ecmaVersion": 2022
-      },
-      "extends": [
-        "plugin:ghost/browser",
-        "plugin:react/recommended"
-      ],
-      "plugins": [
-        "ghost"
-      ],
-      "rules": {
-        "react/prop-types": "off"
-      },
-      "settings": {
-        "react": {
-          "version": "detect"
-        }
+      "browser": true,
+      "jest": true
+    },
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 2022
+    },
+    "extends": [
+      "plugin:ghost/browser",
+      "plugin:react/recommended"
+    ],
+    "plugins": [
+      "ghost"
+    ],
+    "rules": {
+      "react/prop-types": "off"
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
       }
+    }
   },
   "browserslist": {
     "production": [

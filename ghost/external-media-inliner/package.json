@@ -22,7 +22,7 @@
     "mocha": "10.2.0",
     "sinon": "15.2.0"
   },
-"dependencies": {
+  "dependencies": {
     "mime-types": "2.1.35"
-}
+  }
 }
